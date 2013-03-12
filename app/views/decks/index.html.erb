@@ -1,0 +1,3 @@
+<% @decks.each do |deck| %>
+  <div><%= link_to deck.name, "/decks/#{deck.id}" %></div>
+<% end %>

@@ -1,4 +1,8 @@
 Flashcards::Application.routes.draw do
+
+  get "/decks" => "decks#index"
+
+  get "/decks/:id" => "decks#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
