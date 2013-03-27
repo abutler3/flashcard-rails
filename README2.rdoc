@@ -1,0 +1,12 @@
+Musician
+  - About Me
+  - Clips (audio) Soundcloud API
+  - Youtube API
+Developer
+  - HTML5
+  - CSS
+  - Javascript
+  - Jquery
+  - Wordpress
+  - Front-End Development
+  - Github

@@ -1,18 +1,21 @@
 Flashcards::Application.routes.draw do
+  resources :decks do
+    resources :cards, except: :index
+  end
 
-  get "/decks" => "decks#index"
+  # get "/decks" => "decks#index"
 
-  get "/decks/new" => "decks#new"
+  # get "/decks/new" => "decks#new"
 
-  get "/decks/:id" => "decks#show", as: :deck
+  # get "/decks/:id" => "decks#show", as: :deck
 
-  post "/decks" => "decks#create"
+  # post "/decks" => "decks#create"
 
-  get "/decks/:id/edit" => "decks#edit"
+  # get "/decks/:id/edit" => "decks#edit"
 
-  put "/decks/:id" => "decks#update"
+  # put "/decks/:id" => "decks#update"
 
-  delete "/decks/:id" => "decks#destroy"
+  # delete "/decks/:id" => "decks#destroy"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
