@@ -1,30 +1,34 @@
 class DecksController < ApplicationController
+
+  before_filter :authenticate
+  # For before_filter, the symbol is the method you are calling.
+
   def index
-    @decks = Deck.all
+    @decks = current_user.decks
   end
 
   def show
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
     @cards = @deck.cards
   end
 
   def new
-    @deck = Deck.new
+    @deck = current_user.decks.new
   end
 
   def create
-    @deck = Deck.new(params[:deck])
+    @deck = find_deck
     @deck.save
     redirect_to decks_path
     # redirect_to "/decks"
   end
 
   def edit
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
   end
 
   def update
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
     @deck.update_attributes(params[:deck])
     # redirect_to "/decks/#{@deck.id}"
     redirect_to @deck
@@ -32,10 +36,15 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
     @deck.destroy
     # redirect_to "/decks"
     redirect_to decks_path
-
   end
+
+  private
+  def find_deck
+    current_user.decks.find(params[:deck_id])
+  end
+
 end
